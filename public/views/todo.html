@@ -1,3 +1,3 @@
 {{ define "todo" }}
-<p id="todo-{{.Id}}">{{.Title}} {{.Description}} {{.Expires}} {{.Completed}} <button hx-delete="/todo/{{ .Id }}" class="btn" hx-target="#todo-{{.Id}}" hx-swap="outerHTML">del</button></p>
+<li class="list-group-item d-flex justify-content-center" id="todo-{{.Id}}">{{.Title}} {{.Description}} {{.Expires}}<button hx-delete="/todo/{{ .Id }}" class="btn btn-danger" hx-target="#todo-{{.Id}}" hx-swap="outerHTML">DELETE</button></li>
 {{ end }}

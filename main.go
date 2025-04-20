@@ -17,7 +17,6 @@ type Todo struct {
 	Id          int
 	Title       string
 	Description string
-	Completed   bool
 	Expires     string
 }
 
@@ -63,25 +62,15 @@ func main() {
 
 	e.POST("/todo", func(c echo.Context) error {
 
-		var isCompleted bool
-
 		title := c.FormValue("title")
 		description := c.FormValue("description")
 		expires := c.FormValue("expires")
-		completed := c.FormValue("completed")
-
-		if completed == "on" {
-			isCompleted = true
-		} else {
-			isCompleted = false
-		}
 
 		todo := &Todo{
 			Id:          id,
 			Title:       title,
 			Description: description,
 			Expires:     expires,
-			Completed:   isCompleted,
 		}
 
 		id++

@@ -10,19 +10,24 @@
     <title>TodoList</title>
 </head>
 <body>
+    <header class="d-flex justify-content-center">
+        <h1>TODOLIST</h1>
+    </header>
+    <div class="container d-flex justify-content-center">
+    
     <form hx-target="#todolist" hx-post="/todo" hx-swap="beforeend">
         <input type="text" name="title" id="title">
         <input type="text" name="description" id="description">
-        <input type="text" name="expires" id="expires">
-        <input type="checkbox" name="completed" id="completed">
-        <input type="submit" value="add">
+        <input type="date" name="expires" id="expires">
+        <input type="submit" value="ADD" class="btn btn-primary">
     </form>
+</div>
 
-    <ul id="todolist">
-        {{ range .Todos }}
-        {{ template "todo" .}}
-        {{ end }}
-    </ul>
+<ul id="todolist" class="list-group">
+    {{ range .Todos }}
+    {{ template "todo" .}}
+    {{ end }}
+</ul>
 </body>
 </html>
 {{ end }}
